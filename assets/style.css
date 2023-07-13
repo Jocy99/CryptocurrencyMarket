@@ -1,0 +1,19 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    display: block;
+}
+
+header {
+    padding: 15px;
+    display: flex;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    color: aliceblue;
+    background-color: rgb(80, 127, 188);
+}
+
+.body-container {
+    padding: 30px;
+}
