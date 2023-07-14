@@ -15,25 +15,27 @@
         <h3>Search for crypto news and charts</h3>
     </header>
     <div class="body-container">
-        <div>
-            <h3>Search Crypto</h3>
+        <div class="user-search-box">
+            <h3>Search Crypto Coin:</h3>
             <form id="user-form">
-                <label>Crypto Name</label>
-                <input id="cryptoName" type="text" placeholder="Search Crypto Name Here" />
-                <button type="submit">Search</button>
+                <input id="cryptoName" type="text" placeholder="Coin Name" spellcheck="false" />
+                <button id="searchBtn" type="submit">Search</button>
             </form>
         </div>
 
-        <div>
-            <h2>News for <span id="crypto-search-term"></span></h2>
+        <!-- this container will appear once the user selects desired coin search -->
+        <div class="news-results-container">
+            <h2>Coin News Results: <span id="coin-results"></span></h2>
+            <div id="crypto-container"></div>
+        </div>
+        <div class="price-results-container">
+            <h2>Coin Price Results: <span id="coin-results"></span></h2>
             <div id="crypto-container"></div>
         </div>
 
     </div>
     <script src="./assets\js\homepage.js"></script>
-    <!-- This code below is for the search engine created for cryptocurrency news sites  -->
-    <!-- <script async src="https://cse.google.com/cse.js?cx=46717582d21754c5d"></script>
-    <div class="gcse-search"></div> -->
+
 </body>
 
 </html>
