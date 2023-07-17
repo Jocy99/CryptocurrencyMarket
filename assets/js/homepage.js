@@ -7,6 +7,15 @@ var coin_list = 'https://www.cryptocompare.com/coins/list/all/USD/1';
 var top_coins_key = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD&api_key='+apiKey;
 var coin_news_key = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key='+apiKey;
 var coin_news = document.querySelector('#coin-price-results');
+var div_list = document.querySelector('#crypto-container');
+
+// Creating a ordered list element
+var ol_list = document.createElement("ol");
+
+// Creating List Items
+var li1 = document.createElement("li");
+
+li1.textContent = "Testing list";
 
 
 // function top_coin_call () {
@@ -19,13 +28,18 @@ fetch(top_coins_key).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data)
-        console.log(data.Data[0].CoinInfo.FullName);
-        console.log(data.Data.length);
+        // console.log(data.Data[0].CoinInfo.FullName);
+        // console.log(data.Data.length);
         for (
             var i = 0;
             i < data.Data.length;
             i++) {
-                console.log(data.Data[i].CoinInfo.FullName);
+                var price_list = document.createElement('li');
+                price_list.textContent = data.Data[i].CoinInfo.FullName;
+                coin_news.appendChild(price_list);
+
+                // console.log(data.Data[i].CoinInfo.FullName);
+
             }
         
       });
@@ -40,11 +54,40 @@ function coin_news_call () {
         if (response.ok) {
           response.json().then(function (data) {
             console.log(data)
+            
+            // divEl.appendChild(liul);
+            // divEl.liul.appendChild(li2);
+            var ul = {};
             for (
                 var i = 0;
                 i < data.Data.length;
                 i++) {
-                    console.log(data.Data[i].url);
+                    // console.log(data.Data[i].url);
+                    if (i < data.Data.length) {
+                        var listItem = document.createElement('li');
+                        var listItem_2 = document.createElement('li');
+                        listItem.textContent = data.Data[i].url;
+                        // div_list.appendChild(listItem);
+
+                        // Creating a link for each url
+                        var a = document.createElement('a');
+                        var link = document.createTextNode(data.Data[i].title);
+                        a.appendChild(link);
+                        a.title = "My title text";
+                        a.href = (listItem.textContent);
+                        div_list.appendChild(a);
+
+                        // Creating a paragraph for each ul
+                        var listItem_p = document.createElement('p');
+                        listItem_p.textContent = data.Data[i].body;
+                        div_list.appendChild(listItem_p);
+                        // listItem_2.textContent = data.Data[i].source_info.name;
+                        // div_list.appendChild(listItem_2);
+                        // a.href = (listItem_2.textContent);
+                        // div_list.appendChild(a);
+
+                }
+                    
                 }
             
           });
@@ -73,3 +116,4 @@ var formSubmit = function (event) {
 userFormEl.addEventListener('submit', formSubmit);
 // top_coin_call();
 coin_news_call();
+top_coin_call();
