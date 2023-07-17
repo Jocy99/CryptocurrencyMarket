@@ -35,7 +35,7 @@ fetch(top_coins_key).then(function (response) {
             i < data.Data.length;
             i++) {
                 var price_list = document.createElement('li');
-                price_list.textContent = data.Data[i].CoinInfo.FullName;
+                price_list.textContent =data.Data[i].CoinInfo.FullName +" " + data.Data[i].DISPLAY.USD.PRICE;
                 coin_news.appendChild(price_list);
 
                 // console.log(data.Data[i].CoinInfo.FullName);
@@ -57,7 +57,6 @@ function coin_news_call () {
             
             // divEl.appendChild(liul);
             // divEl.liul.appendChild(li2);
-            var ul = {};
             for (
                 var i = 0;
                 i < data.Data.length;
@@ -73,7 +72,7 @@ function coin_news_call () {
                         var a = document.createElement('a');
                         var link = document.createTextNode(data.Data[i].title);
                         a.appendChild(link);
-                        a.title = "My title text";
+                        a.title = (data.Data[i].title);
                         a.href = (listItem.textContent);
                         div_list.appendChild(a);
 
