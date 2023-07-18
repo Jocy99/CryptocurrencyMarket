@@ -10,9 +10,9 @@
 
 <body>
     <header>
-        <h1>Crypto Coin Information </h1>
+        <h1>Cryptocurrency Coin Information </h1>
         <br>
-        <h3>Search for crypto news and charts</h3>
+        <h3>Search for coins current price and recent news!</h3>
     </header>
     <div class="body-container">
         <div class="user-search-box">
@@ -27,21 +27,19 @@
                 <button id="searchBtn" type="submit">Search</button>
             </form>
         </div>
-
-        <!-- this container will appear once the user selects desired coin search -->
+        <div class="crypto-container">
+            <h2>Coin Price Results: <span id="coin-price-results"></span></h2>
+        </div>
         <div class="news-results-container">
             <h2>Coin News Results: <span id="coin-news-results"></span></h2>
             <div id="crypto-container"></div>
         </div>
-        <div class="price-results-container">
-            <h2>Coin Price Results: <span id="coin-price-results"></span></h2>
-            <div id="crypto-container">
-            </div>
-        </div>
+        <script src="./assets\js\homepage.js"></script>
+        <footer class="footer">
+            <p> The source code is licensed by MIT.
+            </p>
 
-    </div>
-    <script src="./assets\js\homepage.js"></script>
-
+        </footer>
 </body>
 
 </html>
