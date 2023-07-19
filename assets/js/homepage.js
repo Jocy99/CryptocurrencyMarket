@@ -8,6 +8,7 @@ var coin_list = 'https://www.cryptocompare.com/coins/list/all/USD/1';
 var top_coins_key = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD&api_key=' + apiKey;
 var single_symbol_url = 'https://min-api.cryptocompare.com/data/price?&tsyms=USD&api_key=' + apiKey;
 var coin_news_key = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=' + apiKey;
+var coin_names_url = 'https://min-api.cryptocompare.com/data/all/coinlist'
 var coin_news = document.querySelector('#coin-price-results');
 var div_list = document.querySelector('#crypto-container');
 
@@ -25,6 +26,17 @@ li1.textContent = "Testing list";
 // .then(response => response.json())
 // .then(data => console.log(data));
 // }
+
+function coin_names() {
+    fetch(coin_names_url).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                console.log("Coin_names", data)
+            }
+            );
+        }});}
+
+
 function fetchSingleToken(token) {
     var apiUrl = single_symbol_url;
     if(token) {
@@ -139,3 +151,4 @@ userFormEl.addEventListener('submit', formSubmit);
 // top_coin_call();
 top_coin_call();
 coin_news_call();
+coin_names();
