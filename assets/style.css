@@ -6,7 +6,7 @@
     padding: 0%;
     display: block;
 }
-
+/* gives style to our header */
 header {
     padding: 15px;
     display: flex;
@@ -16,11 +16,13 @@ header {
     color: aliceblue;
     background-color: rgb(80, 127, 188);
 }
-
+/* adds styles to all of our content */
 .body-container {
     padding: 30px;
+    margin: 30px;
 }
-/* search by crypto coin name */
-.user-search-box {
 
+footer {
+    padding: 30px;
+    margin: 30px;
 }
