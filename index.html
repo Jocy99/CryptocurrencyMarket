@@ -15,7 +15,7 @@
         <h3>Search for crypto news and current prices in USD.</h3>
     </header>
     <div class="body-container">
-        <div class="user-search-box">
+        <div class="user-search-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
             <h3>Search Crypto Coin:</h3>
             <form id="user-form">
                 <!-- <input id="cryptoName" type="text" placeholder="Coin Name" spellcheck="false" /> -->
@@ -28,24 +28,26 @@
                     <option value="GEO">GeoCoin</option>
                     <option value="CHASH">CleverHash</option>
                 </select>
-                <button id="searchBtn" type="submit">Search</button>
-                
+                <button id="searchBtn" type="submit">Search</button>  
             </form>
+            <h2 id="chosen-token"></h2>
+            <span id="chosen-token-price"></span>
         </div>
-
-        <!-- this container will appear once the user selects desired coin search -->
+        <hr />
+        <!-- this container will appear once the user selects desired coin search
         <div class="news-results-container">
             <h2>Coin News Results: <span id="coin-news-results"></span></h2>
             <div id="crypto-container"></div>
-
-            <h1>Crypto Currency Coins:</h1>
- 
-        </div>
+        </div> -->
         <div class="price-results-container">
-            <h2>Coin Price Results: <span id="coin-price-results"></span></h2>
+            <!-- <h1>Crypto Currency Coins:</h1> -->
+            <h2>Top 10 Coin Price Results:</h2>
+            <span id="coin-price-results"></span>
         </div>
+        <hr />
         <div class="crypto-container">
-            <h2>Coin News Results: <span id="coin-news-results"></span></h2>
+            <h2>Coin News Results:</h2>
+            <span id="coin-news-results"></span>
         </div>
     </div>
     <script src="./assets/js/homepage.js"></script>

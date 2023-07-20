@@ -44,9 +44,10 @@ function fetchSingleToken(token) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log("TOP COIN CALL", data)
+                console.log("SINGLE TOKEN", data)
                 // display price for coin/token
-
+                document.getElementById("chosen-token").textContent = token;
+                document.getElementById("chosen-token-price").textContent = '$' + data.USD;
             });
         } else {
             alert('Error: ' + response.statusText);
@@ -141,14 +142,14 @@ function coin_news_call() {
     
 // });
 
-// var formSubmit = function (event) {
-//     event.preventDefault();
-//     fetchSingleToken(chosenCoinSelect.value);
-// }
+var formSubmit = function (event) {
+    event.preventDefault();
+    fetchSingleToken(chosenCoinSelect.value);
+}
 
-// userFormEl.addEventListener('submit', formSubmit);
+userFormEl.addEventListener('submit', formSubmit);
 // top_coin_call();
-fetchSingleToken();
+// fetchSingleToken();
 top_coin_call();
 coin_news_call();
 coin_names();

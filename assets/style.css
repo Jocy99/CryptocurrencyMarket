@@ -36,10 +36,10 @@ body {
 }
 
 button#searchBtn {
-    width: 10%;
+    /* width: 10%; */
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(45, 56, 56, 0.9);
-    margin: 10px;
+    margin: 10px auto;
     padding: 0px 5px;
 
 }
