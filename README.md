@@ -17,7 +17,7 @@ Welcome to our first project Crypto Coin webstie! This is a cryptocurrency websi
 - [CryptoCompare API](https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR) - Used to fetch cryptocurrency data, including prices, and latest news.
 
 ## Setup Usage
-Here is the live URL of our Crypto Coin website => ________________
+Here is the live URL of our Crypto Coin website => https://jocy99.github.io/CryptocurrencyMarket/
 
 ## Usage Instructions
 
