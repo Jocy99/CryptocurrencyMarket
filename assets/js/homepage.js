@@ -47,9 +47,10 @@ function fetchSingleToken(token) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log("TOP COIN CALL", data)
+                console.log("SINGLE TOKEN", data)
                 // display price for coin/token
-
+                document.getElementById("chosen-token").textContent = token;
+                document.getElementById("chosen-token-price").textContent = '$' + data.USD;
             });
         } else {
             alert('Error: ' + response.statusText);

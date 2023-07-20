@@ -8,21 +8,48 @@
 }
 /* gives style to our header */
 header {
-    padding: 15px;
+    padding: 30px;
     display: flex;
     display: block;
     justify-content: center;
     text-align: center;
     color: aliceblue;
-    background-color: rgb(80, 127, 188);
+    background-color: rgb(75 99 132);
+    font-size: xx-large;
+    /* background: linear-gradient(to right #2C3E50, #4CA1AF);  */
+
 }
+/* why is linear gradient not working? */
+body {
+    color: aliceblue;
+    background: #c2e59c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
+}
+
 /* adds styles to all of our content */
 .body-container {
     padding: 30px;
     margin: 30px;
 }
 
+button#searchBtn {
+    /* width: 10%; */
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(45, 56, 56, 0.9);
+    margin: 10px auto;
+    padding: 0px 5px;
+
+}
+
 footer {
-    padding: 30px;
-    margin: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: aliceblue;
+    background: #c2e59c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

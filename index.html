@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptocurrency Market Project</title>
     <link rel="stylesheet" href="assets/style.css">
-
 </head>
 
 <body>
@@ -16,6 +15,8 @@
         <h3>Search for crypto news and current prices in USD.</h3>
     </header>
     <div class="body-container">
+        <div class="user-search-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3>Search Crypto Coin:</h3>
         <div class="user-search-box">
             <form id="user-form">
                 <!-- <input id="cryptoName" type="text" placeholder="Coin Name" spellcheck="false" /> -->
@@ -42,37 +43,31 @@
                 </select>
                 <button id="searchBtn" class="button-is-dark" type="submit" class="card">Search</button>
             </form>
+            <h2 id="chosen-token"></h2>
+            <span id="chosen-token-price"></span>
         </div>
-
-        <!-- this container will appear once the user selects desired coin search -->
-
-    </div>
-    <h1>Crypto Currency Coins:</h1>
-    </div>
-    <!-- ----------------------------------------------------------- -->
-    <!-- <div class="news-results-container">
+        <hr />
+        <!-- this container will appear once the user selects desired coin search
+        <div class="news-results-container">
             <h2>Coin News Results: <span id="coin-news-results"></span></h2>
             <div id="crypto-container"></div>
-
-            <h1>Crypto Currency Coins:</h1>
- 
         </div> -->
-    <div class="price-results-container" id="coin-price-results">
-    </div>
-    <div class="crypto-container">
-        <h2>Coin News Results: <span id="coin-news-results"></span></h2>
-    </div>
-    </div>
-    <script src="./assets\js\homepage.js"></script>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-            </p>
+        <div class="price-results-container">
+            <!-- <h1>Crypto Currency Coins:</h1> -->
+            <h2>Top 10 Coin Price Results:</h2>
+            <span id="coin-price-results"></span>
         </div>
-    </footer>
+        <hr />
+        <div class="crypto-container">
+            <h2>Coin News Results:</h2>
+            <span id="coin-news-results"></span>
+        </div>
+    </div>
+    <script src="./assets/js/homepage.js"></script>
+    <footer class="footer">
+            <p> The source code is licensed by MIT.
+            </p>
+      </footer>
 
 </body>
 
