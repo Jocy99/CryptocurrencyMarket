@@ -120,33 +120,27 @@ function coin_news_call() {
                         function getHtmlTemplate(dataObject) {
                             var news_img = data.Data[i].imageurl;
                             var news_title = data.Data[i].title;
-                            var news_source= data.Data[i].source;
+                            var news_source= data.Data[i].source_info.name;
                             var news_paragraph= data.Data[i].body;
                             return `
                                 <div>
                                     ${dataObject.content}
                                     <div class="card" id="coin-news-results">
                                     <div class="card-image">
-                                      <figure class="image is-96x96"">
-                                        <img src="${news_img}">
+                                      <figure class="image is-96x96">
+                                        <img src="${news_img}" class="ml-6 alt="Placeholder image"">
                                       </figure>
-                                    </div>
                                     <div class="card-content">
                                       <div class="media">
                                         <div class="media-content">
-                                          <p class="title is-4">${news_title}</p>
-                                          <p class="subtitle is-6">${news_source}</p>
-                                        </div>
-                                      </div>
-                                  
-                                      <div class="content">
-                                        ${news_paragraph}<a>@bulmaio</a>.
-                                        <a href="#">#css</a> <a href="#">#responsive</a>
-                                        <br>
-                                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                                      </div>
+                                          <p class="title is-6">${news_title}</p>
+                                          <p class="subtitle is-6">Source: ${news_source}</p>
+                                          <p class="subtitle is-6">${news_paragraph}</p>
                                     </div>
                                   </div>
+                                </div>
+                                </div>
+                                </div>
                                 </div>
                             `;
                         }
