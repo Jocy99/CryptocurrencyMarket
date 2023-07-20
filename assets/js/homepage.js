@@ -10,6 +10,8 @@ var coin_news_key = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api
 var coin_names_url = 'https://min-api.cryptocompare.com/data/all/coinlist'
 var coin_news = document.querySelector('#coin-price-results');
 var div_list = document.querySelector('.crypto-container');
+var div_coin_news = document.querySelector('#coin-news-results');
+var img = document.querySelector("img");
 
 // Creating a ordered list element
 var ol_list = document.createElement("ol");
@@ -18,6 +20,7 @@ var ol_list = document.createElement("ol");
 var li1 = document.createElement("ol");
 
 li1.textContent = "Testing list";
+
 
 
 // function top_coin_call () {
@@ -58,7 +61,7 @@ function top_coin_call() {
     fetch(top_coins_key).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log("TOP COIN CALL", data)
+                // console.log("TOP COIN CALL", data)
                 // console.log(data.Data[0].CoinInfo.FullName);
                 // console.log(data.Data.length);
                 for (
@@ -84,7 +87,7 @@ function coin_news_call() {
     fetch(coin_news_key).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data)
+                console.log("NEWS DATA",data)
 
                 // divEl.appendChild(liul);
                 // divEl.liul.appendChild(li2);
@@ -94,27 +97,70 @@ function coin_news_call() {
                     i++) {
                     // console.log(data.Data[i].url);
                     if (i < data.Data.length) {
-                        var listItem = document.createElement('li');
-                        var listItem_2 = document.createElement('li');
-                        listItem.textContent = data.Data[i].url;
+                        // var listItem = document.createElement('div');
+                        // listItem.classList = 'card-image';
+                        // var figureItem = document.createElement('figure');
+                        // figureItem.classList = 'image is-96x96';
+                        // img.src=data.Data[i].imageurl;
+                        // console.log("imgURL",data.Data[i].imageurl);
+                        
+                        // listItem.setAttribute('id', 'coin-news-results');
+                        // var listItem_2 = document.createElement('li');
+                        // listItem.textContent = ""+data.Data[i].url;
                         // div_list.appendChild(listItem);
 
                         // Creating a link for each url
-                        var a = document.createElement('a');
-                        var link = document.createTextNode(data.Data[i].title);
-                        a.appendChild(link);
-                        a.title = (data.Data[i].title);
-                        a.href = (listItem.textContent);
-                        div_list.appendChild(a);
 
-                        // Creating a paragraph for each ul
-                        var listItem_p = document.createElement('p');
-                        listItem_p.textContent = data.Data[i].body;
-                        div_list.appendChild(listItem_p);
                         // listItem_2.textContent = data.Data[i].source_info.name;
                         // div_list.appendChild(listItem_2);
                         // a.href = (listItem_2.textContent);
                         // div_list.appendChild(a);
+
+                        // Creating the card with the data that is received
+                        function getHtmlTemplate(dataObject) {
+                            var news_img = data.Data[i].imageurl;
+                            var news_title = data.Data[i].title;
+                            var news_source= data.Data[i].source;
+                            var news_paragraph= data.Data[i].body;
+                            return `
+                                <div>
+                                    ${dataObject.content}
+                                    <div class="card" id="coin-news-results">
+                                    <div class="card-image">
+                                      <figure class="image is-96x96"">
+                                        <img src="${news_img}">
+                                      </figure>
+                                    </div>
+                                    <div class="card-content">
+                                      <div class="media">
+                                        <div class="media-content">
+                                          <p class="title is-4">${news_title}</p>
+                                          <p class="subtitle is-6">${news_source}</p>
+                                        </div>
+                                      </div>
+                                  
+                                      <div class="content">
+                                        ${news_paragraph}<a>@bulmaio</a>.
+                                        <a href="#">#css</a> <a href="#">#responsive</a>
+                                        <br>
+                                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            `;
+                        }
+                        
+                        var someData = {
+                            content: ""
+                        }
+                        
+                        function addContent(content) {
+                            card.innerHTML = card.innerHTML + content;
+                        }
+                        
+                        var myHtml = getHtmlTemplate(someData);
+                        addContent(myHtml);
 
                     }
 
@@ -141,14 +187,75 @@ function coin_news_call() {
     
 // });
 
-// var formSubmit = function (event) {
-//     event.preventDefault();
-//     fetchSingleToken(chosenCoinSelect.value);
-// }
+var formSubmit = function (event) {
+    event.preventDefault();
+    fetchSingleToken(chosenCoinSelect.value);
+}
 
-// userFormEl.addEventListener('submit', formSubmit);
+userFormEl.addEventListener('submit', formSubmit);
 // top_coin_call();
-fetchSingleToken();
+// fetchSingleToken();
 top_coin_call();
 coin_news_call();
 coin_names();
+
+
+ var card = document.getElementById('coin-news-results');
+
+// function getHtmlTemplate(dataObject) {
+//     return `
+//         <div>
+//             ${dataObject.content}
+//             <div class="card" id="coin-news-results">
+//             <div class="card-image">
+//               <figure class="image is-96x96"">
+//                 <img src=""+>
+//               </figure>
+//             </div>
+//             <div class="card-content">
+//               <div class="media">
+//                 <div class="media-content">
+//                   <p class="title is-4">News Title</p>
+//                   <p class="subtitle is-6">Other title regarding Information</p>
+//                 </div>
+//               </div>
+          
+//               <div class="content">
+//                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//                 Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+//                 <a href="#">#css</a> <a href="#">#responsive</a>
+//                 <br>
+//                 <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//     `;
+// }
+
+// var someData = {
+//     content: "Hello this is some content"
+// }
+
+// function addContent(content) {
+//     card.innerHTML = card.innerHTML + content;
+// }
+
+// var myHtml = getHtmlTemplate(someData);
+// addContent(myHtml);
+
+
+
+//  USELESS CODE -------------------------------
+
+                        // var a = document.createElement('a');
+                        // var link = document.createTextNode(data.Data[i].title);
+                        // a.appendChild(link);
+                        // a.title = (data.Data[i].title);
+                        // // a.href = (listItem.textContent);
+                        // div_list.appendChild(a);
+
+                        // // Creating a paragraph for each ul
+                        // var listItem_p = document.createElement('p');
+                        // listItem_p.textContent = data.Data[i].body;
+                        // div_list.appendChild(listItem_p);
